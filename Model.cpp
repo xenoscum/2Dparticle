@@ -1,6 +1,7 @@
 #include <unordered_map>
 #include <vector>
 
+
 class Model{
     class Particle;
     
@@ -9,12 +10,15 @@ class Model{
     std::vector<Particle> particles;
 
 public:
+    Model(): N(0), tau(0) {};
+
     Model(int N_, double tau_): N(N_), tau(tau_) {
         particles.resize(N);
     }
 
     
 };
+
 
 class Model::Particle{
     double x;
@@ -28,6 +32,8 @@ class Model::Particle{
     inline static int counter = 0;
 
 public:
+    Particle() {};
+
     Particle(double x_, double y_, double radius_, double density_, std::pair<double, double> velocity_): id(++counter) {
         x = x_;
         y = y_;
