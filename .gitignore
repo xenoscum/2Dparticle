@@ -1,4 +1,4 @@
-main.exe
-data.txt
 .vscode/settings.json
 .vscode/tasks.json
+main.exe.stackdump
+..data.txt
