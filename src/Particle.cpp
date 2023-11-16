@@ -4,6 +4,9 @@
 #include "Particle.h"
 
 
+std::unordered_map<Model::cellID_type, std::unordered_set<Model::Particle::particleID_type>> Model::Particle::cells; 
+
+
 Model::Particle::Particle(double x_, double y_, double radius_, double density_,
             std::pair<double, double> velocity_):
             x(x_), y(y_), radius(radius_), density(density_), velocity(velocity_) {};
@@ -35,7 +38,7 @@ void Model::Particle::writeDrawingData(std::ofstream& out) const {
     out << x << ' ' << y << ' ' << radius << ' ' << density << '\n';
 }
 
-void Model::Particle::predictor(double tau) {
+void Model::Particle::predictor() {
     x += tau * velocity.first;
     y += tau * velocity.second;
 

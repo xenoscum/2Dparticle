@@ -1,6 +1,6 @@
 #pragma once
-#include <utility>
 
+#include <utility>
 #include "Model.h"
 
 class Model::Particle{
@@ -8,7 +8,7 @@ public:
     using particleID_type = size_t;
 
 private:
-    static std::unordered_map<cellID_type, std::unordered_set<particleID_type>> cells; 
+    static std::unordered_map<cellID_type, std::unordered_set<particleID_type>> cells;
     //cell number : set of partcle ids
     
     inline static int idCounter = 0;
@@ -32,6 +32,6 @@ public:
 
     void writeDrawingData(std::ofstream&) const;
 
-    void predictor(double);
+    void predictor();
     void corrector();
 };

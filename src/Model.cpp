@@ -1,6 +1,10 @@
 #include "Model.h"
 #include "Particle.h"
 
+
+double Model::tau;
+double Model::gridSize;
+
 Model::Model(int N_, double tau_, double (*densityInit_) (double, double), dimension dim, double rad):
         N(N_), densityInit(densityInit_){
 
@@ -58,7 +62,7 @@ Model::cellID_type Model::cellHash(double normalizedX, double normalizedY) {
 void Model::runFor(int iterations) {
     for (int iter = 0; iter < iterations; ++iter) {
         for (size_t i = 0; i < N; ++i) {
-            particles[i].predictor(tau);
+            particles[i].predictor();
         }
 
         for (size_t i = 0; i < N; ++i) {
